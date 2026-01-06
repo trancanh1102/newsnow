@@ -1,0 +1,62 @@
+{
+    "common": {
+        "more": "More",
+        "loading": "Loading...",
+        "error": "Error",
+        "refresh": "Refresh",
+        "goToTop": "Go To Top"
+    },
+    "header": {
+        "github": "Github",
+        "starOnGithub": "Star on Github",
+        "version": "Version"
+    },
+    "menu": {
+        "logout": "Logout",
+        "login": "Login with Github",
+        "starOnGithub": "Star on Github"
+    },
+    "columns": {
+        "china": "Domestic",
+        "world": "International",
+        "tech": "Technology",
+        "finance": "Finance",
+        "focus": "Focus",
+        "realtime": "Real-time",
+        "hottest": "Trending"
+    },
+    "time": {
+        "justNow": "just now",
+        "minutesAgo": "{{count}} min ago",
+        "minutesAgo_plural": "{{count}} mins ago",
+        "hoursAgo": "{{count}} hour ago",
+        "hoursAgo_plural": "{{count}} hours ago",
+        "updated": "updated",
+        "monthDay": "{{month}}/{{day}}"
+    },
+    "language": {
+        "en": "English",
+        "vi": "Tiếng Việt",
+        "zh": "中文"
+    },
+    "pwa": {
+        "updateSuccess": "Update successful, enjoy!",
+        "viewUpdate": "View Update",
+        "updateAvailable": "Update available, auto-updating in 5 seconds",
+        "updateNow": "Update Now"
+    },
+    "search": {
+        "placeholder": "Search what you want",
+        "empty": "Not found, you can submit an issue on Github",
+        "uncategorized": "Uncategorized"
+    },
+    "dnd": {
+        "swipeMore": "Swipe left/right to see more",
+        "dragging": "Dragging"
+    },
+    "auth": {
+        "loginToRefresh": "Login to force fetch latest data",
+        "loginRequired": "Authentication failed, please login again",
+        "login": "Login"
+    }
+}

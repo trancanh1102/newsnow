@@ -1,4 +1,6 @@
-export function relativeTime(timestamp: string | number) {
+import type { TFunction } from "i18next"
+
+export function relativeTime(timestamp: string | number, t?: TFunction) {
   if (!timestamp) return undefined
   const date = new Date(timestamp)
   if (Number.isNaN(date.getDay())) return undefined
@@ -8,18 +10,36 @@ export function relativeTime(timestamp: string | number) {
   const diffInMinutes = diffInSeconds / 60
   const diffInHours = diffInMinutes / 60
 
+  // If no translation function provided, use Chinese as fallback
+  if (!t) {
+    if (diffInSeconds < 60) {
+      return "刚刚"
+    } else if (diffInMinutes < 60) {
+      const minutes = Math.floor(diffInMinutes)
+      return `${minutes}分钟前`
+    } else if (diffInHours < 24) {
+      const hours = Math.floor(diffInHours)
+      return `${hours}小时前`
+    } else {
+      const month = date.getMonth() + 1
+      const day = date.getDate()
+      return `${month}月${day}日`
+    }
+  }
+
+  // Use translation function
   if (diffInSeconds < 60) {
-    return "刚刚"
+    return t("time.justNow")
   } else if (diffInMinutes < 60) {
     const minutes = Math.floor(diffInMinutes)
-    return `${minutes}分钟前`
+    return t("time.minutesAgo", { count: minutes })
   } else if (diffInHours < 24) {
     const hours = Math.floor(diffInHours)
-    return `${hours}小时前`
+    return t("time.hoursAgo", { count: hours })
   } else {
     const month = date.getMonth() + 1
     const day = date.getDate()
-    return `${month}月${day}日`
+    return t("time.monthDay", { month, day })
   }
 }
 

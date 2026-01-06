@@ -8,6 +8,7 @@ import { useThrottleFn } from "ahooks"
 import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { motion } from "framer-motion"
 import { useWindowSize } from "react-use"
+import { useTranslation } from "react-i18next"
 import { isMobile } from "react-device-detect"
 import { DndContext } from "../common/dnd"
 import { useSortable } from "../common/dnd/useSortable"
@@ -19,6 +20,7 @@ import { currentSourcesAtom } from "~/atoms"
 const AnimationDuration = 200
 const WIDTH = 350
 export function Dnd() {
+  const { t } = useTranslation()
   const [items, setItems] = useAtom(currentSourcesAtom)
   const [parent] = useAutoAnimate({ duration: AnimationDuration })
   useEntireQuery(items)
@@ -40,7 +42,7 @@ export function Dnd() {
           ref={parent}
           style={isMobile
             ? {
-                // 横向滚动布局
+              // 横向滚动布局
               }
             : {
                 gridTemplateColumns: `repeat(auto-fill, minmax(${minWidth}px, 1fr))`,
@@ -87,7 +89,7 @@ export function Dnd() {
       </OverlayScrollbar>
       {isMobile && (
         <div className="flex justify-center">
-          <span className="text-sm text-gray-500 text-center">左右滑动查看更多</span>
+          <span className="text-sm text-gray-500 text-center">{t("dnd.swipeMore")}</span>
         </div>
       )}
     </DndWrapper>
@@ -130,6 +132,7 @@ function DndWrapper({ items, setItems, isSingleColumn, children }: PropsWithChil
 }
 
 function CardOverlay({ id }: { id: SourceID }) {
+  const { t } = useTranslation()
   return (
     <div className={$(
       "flex flex-col p-4 backdrop-blur-5",
@@ -152,7 +155,7 @@ function CardOverlay({ id }: { id: SourceID }) {
               </span>
               {sources[id]?.title && <span className={$("text-sm", `color-${sources[id].color} bg-base op-80 bg-op-50! px-1 rounded`)}>{sources[id].title}</span>}
             </span>
-            <span className="text-xs op-70">拖拽中</span>
+            <span className="text-xs op-70">{t("dnd.dragging")}</span>
           </span>
         </div>
         <div className={$("flex gap-2 text-lg", `color-${sources[id].color}`)}>

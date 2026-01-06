@@ -1,0 +1,62 @@
+{
+    "common": {
+        "more": "Thêm",
+        "loading": "Đang tải...",
+        "error": "Lỗi",
+        "refresh": "Làm mới",
+        "goToTop": "Lên đầu trang"
+    },
+    "header": {
+        "github": "Github",
+        "starOnGithub": "Star trên Github",
+        "version": "Phiên bản"
+    },
+    "menu": {
+        "logout": "Đăng xuất",
+        "login": "Đăng nhập bằng Github",
+        "starOnGithub": "Star trên Github"
+    },
+    "columns": {
+        "china": "Trong nước",
+        "world": "Quốc tế",
+        "tech": "Công nghệ",
+        "finance": "Tài chính",
+        "focus": "Quan tâm",
+        "realtime": "Thời gian thực",
+        "hottest": "Nổi bật"
+    },
+    "time": {
+        "justNow": "vừa xong",
+        "minutesAgo": "{{count}} phút trước",
+        "minutesAgo_plural": "{{count}} phút trước",
+        "hoursAgo": "{{count}} giờ trước",
+        "hoursAgo_plural": "{{count}} giờ trước",
+        "updated": "cập nhật",
+        "monthDay": "{{day}}/{{month}}"
+    },
+    "language": {
+        "en": "English",
+        "vi": "Tiếng Việt",
+        "zh": "中文"
+    },
+    "pwa": {
+        "updateSuccess": "Cập nhật thành công!",
+        "viewUpdate": "Xem cập nhật",
+        "updateAvailable": "Có bản cập nhật, tự động cập nhật sau 5 giây",
+        "updateNow": "Cập nhật ngay"
+    },
+    "search": {
+        "placeholder": "Tìm kiếm",
+        "empty": "Không tìm thấy, bạn có thể tạo issue trên Github",
+        "uncategorized": "Chưa phân loại"
+    },
+    "dnd": {
+        "swipeMore": "Vuốt trái/phải để xem thêm",
+        "dragging": "Đang kéo"
+    },
+    "auth": {
+        "loginToRefresh": "Đăng nhập để làm mới dữ liệu mới nhất",
+        "loginRequired": "Xác thực thất bại, vui lòng đăng nhập lại",
+        "login": "Đăng nhập"
+    }
+}

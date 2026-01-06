@@ -1,4 +1,5 @@
 import { useMount } from "react-use"
+import { useTranslation } from "react-i18next"
 
 /**
  * changed every minute
@@ -30,15 +31,16 @@ export function useRelativeTime(timestamp: string | number) {
   const [time, setTime] = useState<string>()
   const timer = useAtomValue(timerAtom)
   const visible = useVisibility()
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (visible) {
-      const t = relativeTime(timestamp)
-      if (t) {
-        setTime(t)
+      const t_time = relativeTime(timestamp, t)
+      if (t_time) {
+        setTime(t_time)
       }
     }
-  }, [timestamp, timer, visible])
+  }, [timestamp, timer, visible, t])
 
   return time
 }

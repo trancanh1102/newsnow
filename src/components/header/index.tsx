@@ -1,16 +1,19 @@
 import { Link } from "@tanstack/react-router"
 import { useIsFetching } from "@tanstack/react-query"
+import { useTranslation } from "react-i18next"
 import type { SourceID } from "@shared/types"
 import { NavBar } from "../navbar"
 import { Menu } from "./menu"
+import { LanguageSwitcher } from "./language-switcher"
 import { currentSourcesAtom, goToTopAtom } from "~/atoms"
 
 function GoTop() {
   const { ok, fn: goToTop } = useAtomValue(goToTopAtom)
+  const { t } = useTranslation()
   return (
     <button
       type="button"
-      title="Go To Top"
+      title={t("common.goToTop")}
       className={$("i-ph:arrow-fat-up-duotone", ok ? "op-50 btn" : "op-0")}
       onClick={goToTop}
     />
@@ -18,14 +21,16 @@ function GoTop() {
 }
 
 function Github() {
+  const { t } = useTranslation()
   return (
-    <button type="button" title="Github" className="i-ph:github-logo-duotone btn" onClick={() => window.open(Homepage)} />
+    <button type="button" title={t("header.github")} className="i-ph:github-logo-duotone btn" onClick={() => window.open(Homepage)} />
   )
 }
 
 function Refresh() {
   const currentSources = useAtomValue(currentSourcesAtom)
   const { refresh } = useRefetch()
+  const { t } = useTranslation()
   const refreshAll = useCallback(() => refresh(...currentSources), [refresh, currentSources])
 
   const isFetching = useIsFetching({
@@ -38,7 +43,7 @@ function Refresh() {
   return (
     <button
       type="button"
-      title="Refresh"
+      title={t("common.refresh")}
       className={$("i-ph:arrow-counter-clockwise-duotone btn", isFetching && "animate-spin i-ph:circle-dashed-duotone")}
       onClick={refreshAll}
     />
@@ -72,6 +77,7 @@ export function Header() {
         <GoTop />
         <Refresh />
         <Github />
+        <LanguageSwitcher />
         <Menu />
       </span>
     </>

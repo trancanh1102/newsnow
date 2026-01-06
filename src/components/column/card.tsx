@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import { AnimatePresence, motion, useInView } from "framer-motion"
 import { useWindowSize } from "react-use"
 import { forwardRef, useImperativeHandle } from "react"
+import { useTranslation } from "react-i18next"
 import { OverlayScrollbar } from "../common/overlay-scrollbar"
 import { safeParseString } from "~/utils"
 
@@ -171,10 +172,11 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
 }
 
 function UpdatedTime({ isError, updatedTime }: { updatedTime: any, isError: boolean }) {
+  const { t } = useTranslation()
   const relativeTime = useRelativeTime(updatedTime ?? "")
-  if (relativeTime) return `${relativeTime}更新`
-  if (isError) return "获取失败"
-  return "加载中..."
+  if (relativeTime) return `${relativeTime} ${t("time.updated")}`
+  if (isError) return t("common.error")
+  return t("common.loading")
 }
 
 function DiffNumber({ diff }: { diff: number }) {
@@ -189,7 +191,7 @@ function DiffNumber({ diff }: { diff: number }) {
 
   return (
     <AnimatePresence>
-      { shown && (
+      {shown && (
         <motion.span
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 0.5, y: -7 }}

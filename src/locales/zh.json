@@ -1,0 +1,62 @@
+{
+    "common": {
+        "more": "更多",
+        "loading": "加载中...",
+        "error": "错误",
+        "refresh": "刷新",
+        "goToTop": "回到顶部"
+    },
+    "header": {
+        "github": "Github",
+        "starOnGithub": "在 Github 上 Star",
+        "version": "版本"
+    },
+    "menu": {
+        "logout": "退出登录",
+        "login": "Github 账号登录",
+        "starOnGithub": "Star on Github"
+    },
+    "columns": {
+        "china": "国内",
+        "world": "国际",
+        "tech": "科技",
+        "finance": "财经",
+        "focus": "关注",
+        "realtime": "实时",
+        "hottest": "最热"
+    },
+    "time": {
+        "justNow": "刚刚",
+        "minutesAgo": "{{count}}分钟前",
+        "minutesAgo_plural": "{{count}}分钟前",
+        "hoursAgo": "{{count}}小时前",
+        "hoursAgo_plural": "{{count}}小时前",
+        "updated": "更新",
+        "monthDay": "{{month}}月{{day}}日"
+    },
+    "language": {
+        "en": "English",
+        "vi": "Tiếng Việt",
+        "zh": "中文"
+    },
+    "pwa": {
+        "updateSuccess": "更新成功，赶快体验吧",
+        "viewUpdate": "查看更新",
+        "updateAvailable": "有更新，5 秒后自动更新",
+        "updateNow": "立刻更新"
+    },
+    "search": {
+        "placeholder": "搜索你想要的",
+        "empty": "没有找到，可以前往 Github 提 issue",
+        "uncategorized": "未分类"
+    },
+    "dnd": {
+        "swipeMore": "左右滑动查看更多",
+        "dragging": "拖拽中"
+    },
+    "auth": {
+        "loginToRefresh": "登录后可以强制拉取最新数据",
+        "loginRequired": "身份校验失败，无法同步，请重新登录",
+        "login": "登录"
+    }
+}

@@ -1,7 +1,9 @@
 import type { SourceID } from "@shared/types"
+import { useTranslation } from "react-i18next"
 import { useUpdateQuery } from "./query"
 
 export function useRefetch() {
+  const { t } = useTranslation()
   const { enableLogin, loggedIn, login } = useLogin()
   const toaster = useToast()
   const updateQuery = useUpdateQuery()
@@ -10,10 +12,10 @@ export function useRefetch() {
    */
   const refresh = useCallback((...sources: SourceID[]) => {
     if (enableLogin && !loggedIn) {
-      toaster("登录后可以强制拉取最新数据", {
+      toaster(t("auth.loginToRefresh"), {
         type: "warning",
         action: {
-          label: "登录",
+          label: t("auth.login"),
           onClick: login,
         },
       })

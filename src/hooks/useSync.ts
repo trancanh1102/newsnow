@@ -1,5 +1,6 @@
 import type { PrimitiveMetadata } from "@shared/types"
 import { useDebounce, useMount } from "react-use"
+import { useTranslation } from "react-i18next"
 import { useLogin } from "./useLogin"
 import { useToast } from "./useToast"
 import { safeParseString } from "~/utils"
@@ -38,6 +39,7 @@ async function downloadMetadata(): Promise<PrimitiveMetadata | undefined> {
 }
 
 export function useSync() {
+  const { t } = useTranslation()
   const [primitiveMetadata, setPrimitiveMetadata] = useAtom(primitiveMetadataAtom)
   const { logout, login } = useLogin()
   const toaster = useToast()
@@ -48,10 +50,10 @@ export function useSync() {
         await uploadMetadata(primitiveMetadata)
       } catch (e: any) {
         if (e.statusCode !== 506) {
-          toaster("身份校验失败，无法同步，请重新登录", {
+          toaster(t("auth.loginRequired"), {
             type: "error",
             action: {
-              label: "登录",
+              label: t("auth.login"),
               onClick: login,
             },
           })
@@ -73,10 +75,10 @@ export function useSync() {
         }
       } catch (e: any) {
         if (e.statusCode !== 506) {
-          toaster("身份校验失败，无法同步，请重新登录", {
+          toaster(t("auth.loginRequired"), {
             type: "error",
             action: {
-              label: "登录",
+              label: t("auth.login"),
               onClick: login,
             },
           })
