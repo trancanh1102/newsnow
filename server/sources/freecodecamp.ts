@@ -1,0 +1,21 @@
+import type { NewsItem } from "@shared/types"
+
+export default defineSource(async () => {
+  const rss = await rss2json("https://www.freecodecamp.org/news/rss/")
+  if (!rss) return []
+
+  const news: NewsItem[] = []
+  for (const item of rss.items) {
+    news.push({
+      id: item.link,
+      title: item.title,
+      url: item.link,
+      extra: {
+        date: item.created,
+        hover: item.description,
+      },
+    })
+  }
+
+  return news
+})
